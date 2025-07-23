@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Native List Semantics Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 600px;
+        }
+
+        .example {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .bad {
+            background-color: #ffebee;
+            border-color: #f44336;
+        }
+
+        .good {
+            background-color: #e8f5e8;
+            border-color: #4caf50;
+        }
+
+        .label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .bad .label {
+            color: #d32f2f;
+        }
+
+        .good .label {
+            color: #388e3c;
+        }
+
+        .code {
+            font-family: monospace;
+            background-color: #f5f5f5;
+            padding: 8px;
+            border-radius: 3px;
+            margin-top: 8px;
+            font-size: 12px;
+        }
+
+        .explanation {
+            font-size: 14px;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Style list items to look like buttons when they have role="button" */
+        .bad li[role="button"] {
+            display: block;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 5px;
+            user-select: none;
+        }
+
+        .bad li[role="button"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style actual buttons inside list items */
+        .good button {
+            display: block;
+            width: 100%;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+
+        .good button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            margin: 10px 0;
+            padding-left: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="example bad">
+        <div class="label">❌ Bad: Changing list item semantics</div>
+        <ul>
+            <li role="button" tabindex="0" onclick="alert('Item 1 clicked!')">Menu Item 1</li>
+            <li role="button" tabindex="0" onclick="alert('Item 2 clicked!')">Menu Item 2</li>
+            <li role="button" tabindex="0" onclick="alert('Item 3 clicked!')">Menu Item 3</li>
+        </ul>
+        <div class="code">&lt;ul&gt;<br>&nbsp;&nbsp;&lt;li role="button" tabindex="0"&gt;Menu Item 1&lt;/li&gt;<br>&nbsp;&nbsp;&lt;li role="button" tabindex="0"&gt;Menu Item 2&lt;/li&gt;<br>&lt;/ul&gt;</div>
+        <div class="explanation">
+            Screen readers can't navigate this as a list anymore. Users lose list shortcuts and structure understanding.
+        </div>
+    </div>
+
+    <div class="example good">
+        <div class="label">✅ Good: Preserving list semantics</div>
+        <ul>
+            <li><button onclick="alert('Item 1 clicked!')">Menu Item 1</button></li>
+            <li><button onclick="alert('Item 2 clicked!')">Menu Item 2</button></li>
+            <li><button onclick="alert('Item 3 clicked!')">Menu Item 3</button></li>
+        </ul>
+        <div class="code">&lt;ul&gt;<br>&nbsp;&nbsp;&lt;li&gt;&lt;button&gt;Menu Item 1&lt;/button&gt;&lt;/li&gt;<br>&nbsp;&nbsp;&lt;li&gt;&lt;button&gt;Menu Item 2&lt;/button&gt;&lt;/li&gt;<br>&lt;/ul&gt;</div>
+        <div class="explanation">
+            Screen readers can navigate as a proper list AND access interactive buttons. Best of both worlds!
+        </div>
+    </div>
+
+    <script>
+        // Add keyboard support for the bad example (this is what you get for free with proper semantics)
+        document.querySelectorAll('.bad li[role="button"]').forEach(item => {
+            item.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
