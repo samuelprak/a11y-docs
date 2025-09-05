@@ -14,29 +14,24 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Missing skip link - Issue #10 -->
 
     <!-- Header Navigation -->
     <header class="header">
       <div class="container">
-        <!-- Logo without alt text - Issue #1 -->
         <img
           src="./logo.png"
           class="logo"
         />
 
         <div class="search-container">
-          <!-- Unlabeled search input - Issue #5 -->
           <input
             type="text"
             placeholder="Search products..."
             class="search-input"
           />
-          <!-- Div styled as button with no accessible name - Issue #3, #7 -->
           <div class="search-btn">🔍</div>
         </div>
 
-        <!-- Account menu with hover-only dropdown - Issue #9 -->
         <div class="account-menu">
           <span>My Account</span>
           <div class="dropdown">
@@ -46,7 +41,6 @@
           </div>
         </div>
 
-        <!-- Cart icon without accessible name - Issue #7 -->
         <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
       </div>
     </header>
@@ -56,16 +50,13 @@
       <section class="hero">
         <div class="container">
           <div class="hero-content">
-            <!-- Low contrast welcome message - Issue #2 -->
             <div class="welcome-message">
               <h3>Welcome to DoctoStore</h3>
               <p class="low-contrast">
                 Get your favorite Doctolib goodies delivered to your desk!
               </p>
-              <!-- Poor focus indicator button - Issue #6 -->
               <button class="shop-now-btn">Shop Now</button>
             </div>
-            <!-- Decorative image with useless alt text - Issue #1 -->
             <img
               src="https://images.unsplash.com/photo-1525562723836-dca67a71d5f1?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="two men walking and holding goodies"
@@ -77,7 +68,6 @@
 
       <div class="container">
         <div class="content-wrapper">
-          <!-- Product Categories - Non-semantic divs instead of lists - Issue #4 -->
           <aside class="sidebar">
             <div class="categories-title">Categories</div>
             <div class="category-item">Mugs & Drinkware</div>
@@ -86,22 +76,16 @@
             <div class="category-item">Office Supplies</div>
           </aside>
 
-          <!-- Featured Products Grid - Missing heading structure - Issue #8 -->
           <section class="products-grid">
             <!-- Product Cards -->
             <div class="product-card">
-              <!-- Product image without alt text - Issue #1 -->
               <img
                 src="https://images.unsplash.com/photo-1605714196241-00bf7a8fe7bb?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 class="product-image"
               />
-              <!-- Span instead of heading - Issue #4, #8 -->
               <span class="product-name">Doctolib Blue Mug</span>
-              <!-- Low contrast price - Issue #2 -->
               <p class="price low-contrast">€15.99</p>
-              <!-- Generic button text - Issue #7 -->
               <button class="add-to-cart">Add to Cart</button>
-              <!-- Hover-only quick view - Issue #9 -->
               <div class="quick-view">Quick View Details</div>
             </div>
 
@@ -142,12 +126,10 @@
       </div>
     </main>
 
-    <!-- Footer - Span instead of semantic footer - Issue #4 -->
     <span class="footer">
       <div class="container">
         <div class="footer-section">
           <h4>Company</h4>
-          <!-- Generic "click here" links - Issue #7 -->
           <a href="#">Click here for About Us</a>
           <a href="#">Click here for Careers</a>
           <a href="#">Click here for Contact</a>
@@ -155,7 +137,6 @@
 
         <div class="footer-section">
           <h4>Follow Us</h4>
-          <!-- Social media icons without labels - Issue #7 -->
           <div class="social-icons">
             <span><i class="fab fa-facebook"></i></span>
             <span><i class="fab fa-twitter"></i></span>
@@ -163,7 +144,6 @@
           </div>
         </div>
 
-        <!-- Copyright in span instead of semantic element - Issue #4 -->
         <span class="copyright">© 2024 MySimpleStore. All rights reserved.</span>
       </div>
     </span>
