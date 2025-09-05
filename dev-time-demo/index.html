@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DoctoStore - Doctolib Employee Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Missing skip link - Issue #10 -->
+
+    <!-- Header Navigation -->
+    <header class="header">
+      <div class="container">
+        <!-- Logo without alt text - Issue #1 -->
+        <img
+          src="./logo.png"
+          class="logo"
+        />
+
+        <div class="search-container">
+          <!-- Unlabeled search input - Issue #5 -->
+          <input
+            type="text"
+            placeholder="Search products..."
+            class="search-input"
+          />
+          <!-- Div styled as button with no accessible name - Issue #3, #7 -->
+          <div class="search-btn">🔍</div>
+        </div>
+
+        <!-- Account menu with hover-only dropdown - Issue #9 -->
+        <div class="account-menu">
+          <span>My Account</span>
+          <div class="dropdown">
+            <div>Profile</div>
+            <div>Orders</div>
+            <div>Logout</div>
+          </div>
+        </div>
+
+        <!-- Cart icon without accessible name - Issue #7 -->
+        <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <!-- Low contrast welcome message - Issue #2 -->
+            <div class="welcome-message">
+              <h3>Welcome to DoctoStore</h3>
+              <p class="low-contrast">
+                Get your favorite Doctolib goodies delivered to your desk!
+              </p>
+              <!-- Poor focus indicator button - Issue #6 -->
+              <button class="shop-now-btn">Shop Now</button>
+            </div>
+            <!-- Decorative image with useless alt text - Issue #1 -->
+            <img
+              src="https://images.unsplash.com/photo-1525562723836-dca67a71d5f1?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="two men walking and holding goodies"
+              class="hero-image"
+            />
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="content-wrapper">
+          <!-- Product Categories - Non-semantic divs instead of lists - Issue #4 -->
+          <aside class="sidebar">
+            <div class="categories-title">Categories</div>
+            <div class="category-item">Mugs & Drinkware</div>
+            <div class="category-item">Apparel & Accessories</div>
+            <div class="category-item">Tech Gadgets</div>
+            <div class="category-item">Office Supplies</div>
+          </aside>
+
+          <!-- Featured Products Grid - Missing heading structure - Issue #8 -->
+          <section class="products-grid">
+            <!-- Product Cards -->
+            <div class="product-card">
+              <!-- Product image without alt text - Issue #1 -->
+              <img
+                src="https://images.unsplash.com/photo-1605714196241-00bf7a8fe7bb?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="product-image"
+              />
+              <!-- Span instead of heading - Issue #4, #8 -->
+              <span class="product-name">Doctolib Blue Mug</span>
+              <!-- Low contrast price - Issue #2 -->
+              <p class="price low-contrast">€15.99</p>
+              <!-- Generic button text - Issue #7 -->
+              <button class="add-to-cart">Add to Cart</button>
+              <!-- Hover-only quick view - Issue #9 -->
+              <div class="quick-view">Quick View Details</div>
+            </div>
+
+            <div class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1500576992153-0271099def59?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="product-image"
+              />
+              <span class="product-name">Logo Sticker Pack</span>
+              <p class="price low-contrast">€8.50</p>
+              <button class="add-to-cart">Add to Cart</button>
+              <div class="quick-view">Premium sticker collection</div>
+            </div>
+
+            <div class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="product-image"
+              />
+              <span class="product-name">Team T-Shirt</span>
+              <p class="price low-contrast">€24.99</p>
+              <button class="add-to-cart">Add to Cart</button>
+              <div class="quick-view">100% cotton comfort</div>
+            </div>
+
+            <div class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1516414447565-b14be0adf13e?q=80&w=2146&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="product-image"
+              />
+              <span class="product-name">Branded Notebook</span>
+              <p class="price low-contrast">€12.00</p>
+              <button class="add-to-cart">Add to Cart</button>
+              <div class="quick-view">Perfect for meetings</div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer - Span instead of semantic footer - Issue #4 -->
+    <span class="footer">
+      <div class="container">
+        <div class="footer-section">
+          <h4>Company</h4>
+          <!-- Generic "click here" links - Issue #7 -->
+          <a href="#">Click here for About Us</a>
+          <a href="#">Click here for Careers</a>
+          <a href="#">Click here for Contact</a>
+        </div>
+
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <!-- Social media icons without labels - Issue #7 -->
+          <div class="social-icons">
+            <span><i class="fab fa-facebook"></i></span>
+            <span><i class="fab fa-twitter"></i></span>
+            <span><i class="fab fa-instagram"></i></span>
+          </div>
+        </div>
+
+        <!-- Copyright in span instead of semantic element - Issue #4 -->
+        <span class="copyright">© 2024 MySimpleStore. All rights reserved.</span>
+      </div>
+    </span>
+  </body>
+</html>

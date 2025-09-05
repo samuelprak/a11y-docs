@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIA Role Types Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid;
+            border-radius: 8px;
+        }
+
+        .control-roles {
+            background-color: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .live-region-roles {
+            background-color: #fff3e0;
+            border-color: #ff9800;
+        }
+
+        .landmark-roles {
+            background-color: #f3e5f5;
+            border-color: #9c27b0;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .control-roles .section-title {
+            color: #1976d2;
+        }
+
+        .live-region-roles .section-title {
+            color: #f57c00;
+        }
+
+        .landmark-roles .section-title {
+            color: #7b1fa2;
+        }
+
+        .description {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .demo-group {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .demo-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .code {
+            font-family: monospace;
+            background-color: #f5f5f5;
+            padding: 8px;
+            border-radius: 3px;
+            margin-top: 8px;
+            font-size: 12px;
+            border-left: 3px solid #ccc;
+        }
+
+        /* Control role styles */
+        button {
+            padding: 8px 16px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #2196f3;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #1976d2;
+        }
+
+        .slider {
+            width: 200px;
+            margin: 10px 0;
+        }
+
+        .tabs {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .tab {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            cursor: pointer;
+            margin-right: 2px;
+        }
+
+        .tab[aria-selected="true"] {
+            background-color: white;
+            border-bottom: 1px solid white;
+            margin-bottom: -1px;
+        }
+
+        .tabpanel {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+            background-color: white;
+        }
+
+        /* Live region styles */
+        .alert {
+            background-color: #ffebee;
+            border: 1px solid #f44336;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+
+        .status {
+            background-color: #e8f5e8;
+            border: 1px solid #4caf50;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+
+        .log {
+            background-color: #f5f5f5;
+            border: 1px solid #666;
+            padding: 10px;
+            border-radius: 4px;
+            height: 100px;
+            overflow-y: auto;
+            margin: 10px 0;
+        }
+
+        /* Landmark styles */
+        .landmark-demo {
+            border: 2px dashed #9c27b0;
+            padding: 10px;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .landmark-label {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background-color: #f3e5f5;
+            padding: 2px 8px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #7b1fa2;
+        }
+    </style>
+</head>
+<body>
+    <h1>ARIA Role Types Demonstration</h1>
+
+    <!-- CONTROL ROLES SECTION -->
+    <div class="section control-roles">
+        <div class="section-title">🎛️ Control Roles</div>
+        <div class="description">Interactive elements users can operate (buttons, sliders, checkboxes, etc.)</div>
+        
+        <div class="demo-group">
+            <div class="demo-title">Button Role</div>
+            <button role="button" onclick="showAlert()">Click Me!</button>
+            <div class="code">role="button"</div>
+        </div>
+
+        <div class="demo-group">
+            <div class="demo-title">Slider Role</div>
+            <input type="range" class="slider" role="slider" min="0" max="100" value="50" aria-label="Volume control">
+            <span id="slider-value">50</span>
+            <div class="code">role="slider" aria-label="Volume control"</div>
+        </div>
+
+        <div class="demo-group">
+            <div class="demo-title">Checkbox Role</div>
+            <div role="checkbox" aria-checked="false" tabindex="0" onclick="toggleCheckbox(this)" style="cursor: pointer;">
+                ☐ Custom Checkbox
+            </div>
+            <div class="code">role="checkbox" aria-checked="false"</div>
+        </div>
+
+        <div class="demo-group">
+            <div class="demo-title">Tab Roles</div>
+            <div class="tabs" role="tablist">
+                <div class="tab" role="tab" aria-selected="true" aria-controls="panel1" tabindex="0">Tab 1</div>
+                <div class="tab" role="tab" aria-selected="false" aria-controls="panel2" tabindex="-1">Tab 2</div>
+            </div>
+            <div class="tabpanel" role="tabpanel" id="panel1">Content for Tab 1</div>
+            <div class="code">role="tablist", role="tab", role="tabpanel"</div>
+        </div>
+    </div>
+
+    <!-- LIVE REGION ROLES SECTION -->
+    <div class="section live-region-roles">
+        <div class="section-title">📢 Live Region Roles</div>
+        <div class="description">Announce dynamic content changes to screen readers (alert, status, log)</div>
+        
+        <div class="demo-group">
+            <div class="demo-title">Alert Role</div>
+            <button onclick="showAlert()">Trigger Alert</button>
+            <div id="alert-region" role="alert" class="alert" style="display: none;"></div>
+            <div class="code">role="alert" - Immediately announced to screen readers</div>
+        </div>
+
+        <div class="demo-group">
+            <div class="demo-title">Status Role</div>
+            <button onclick="updateStatus()">Update Status</button>
+            <div id="status-region" role="status" class="status">Ready</div>
+            <div class="code">role="status" - Politely announced when convenient</div>
+        </div>
+
+        <div class="demo-group">
+            <div class="demo-title">Log Role</div>
+            <button onclick="addLogEntry()">Add Log Entry</button>
+            <div id="log-region" role="log" class="log"></div>
+            <div class="code">role="log" - New additions are announced</div>
+        </div>
+    </div>
+
+    <!-- LANDMARK ROLES SECTION -->
+    <div class="section landmark-roles">
+        <div class="section-title">🗺️ Landmark Roles</div>
+        <div class="description">Define page structure and navigation regions (main, navigation, banner, contentinfo)</div>
+        
+        <div class="demo-group">
+            <div class="demo-title">Navigation Role</div>
+            <div class="landmark-demo">
+                <div class="landmark-label">role="navigation"</div>
+                <nav role="navigation">
+                    <a href="#">Home</a> | <a href="#">About</a> | <a href="#">Contact</a>
+                </nav>
+            </div>
+            <div class="code">role="navigation" - Site navigation menu</div>
+        </div>
+
+        <div class="demo-group">
+            <div class="demo-title">Banner Role</div>
+            <div class="landmark-demo">
+                <div class="landmark-label">role="banner"</div>
+                <header role="banner">
+                    <h2>Site Header / Logo Area</h2>
+                </header>
+            </div>
+            <div class="code">role="banner" - Page header/masthead</div>
+        </div>
+
+        <div class="demo-group">
+            <div class="demo-title">Main Role</div>
+            <div class="landmark-demo">
+                <div class="landmark-label">role="main"</div>
+                <main role="main">
+                    <p>Primary content area of the page</p>
+                </main>
+            </div>
+            <div class="code">role="main" - Primary page content</div>
+        </div>
+
+        <div class="demo-group">
+            <div class="demo-title">Contentinfo Role</div>
+            <div class="landmark-demo">
+                <div class="landmark-label">role="contentinfo"</div>
+                <footer role="contentinfo">
+                    <p>© 2024 - Footer information</p>
+                </footer>
+            </div>
+            <div class="code">role="contentinfo" - Page footer</div>
+        </div>
+
+        <div class="demo-group">
+            <div class="demo-title">Complementary Role</div>
+            <div class="landmark-demo">
+                <div class="landmark-label">role="complementary"</div>
+                <aside role="complementary">
+                    <p>Sidebar or supplementary content</p>
+                </aside>
+            </div>
+            <div class="code">role="complementary" - Supporting content</div>
+        </div>
+    </div>
+
+    <script>
+        let logCounter = 1;
+        let statusCounter = 1;
+
+        function showAlert() {
+            const alertRegion = document.getElementById('alert-region');
+            alertRegion.textContent = 'Alert! This is an important message.';
+            alertRegion.style.display = 'block';
+            setTimeout(() => {
+                alertRegion.style.display = 'none';
+            }, 3000);
+        }
+
+        function updateStatus() {
+            const statusRegion = document.getElementById('status-region');
+            statusRegion.textContent = `Status updated #${statusCounter++}`;
+        }
+
+        function addLogEntry() {
+            const logRegion = document.getElementById('log-region');
+            const entry = document.createElement('div');
+            entry.textContent = `Log entry #${logCounter++} - ${new Date().toLocaleTimeString()}`;
+            logRegion.appendChild(entry);
+            logRegion.scrollTop = logRegion.scrollHeight;
+        }
+
+        function toggleCheckbox(element) {
+            const checked = element.getAttribute('aria-checked') === 'true';
+            element.setAttribute('aria-checked', !checked);
+            element.textContent = !checked ? '☑ Custom Checkbox' : '☐ Custom Checkbox';
+        }
+
+        // Slider value update
+        document.querySelector('.slider').addEventListener('input', function(e) {
+            document.getElementById('slider-value').textContent = e.target.value;
+        });
+
+        // Add keyboard support for custom checkbox
+        document.querySelector('[role="checkbox"]').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleCheckbox(this);
+            }
+        });
+    </script>
+</body>
+</html> 

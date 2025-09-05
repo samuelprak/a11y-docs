@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Native HTML Controls Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .control-group {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        .control-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input, select, textarea {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 5px;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"], select, textarea {
+            width: 200px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .checkbox-item, .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Native HTML Controls</h1>
+
+    <div class="control-group">
+        <div class="control-label">Text Inputs</div>
+        <input type="text" placeholder="Text input">
+        <input type="email" placeholder="Email input">
+        <input type="password" placeholder="Password input">
+        <input type="number" placeholder="Number input" min="0" max="100">
+        <input type="date">
+        <input type="time">
+    </div>
+
+    <div class="control-group">
+        <div class="control-label">Checkboxes</div>
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="check1">
+                <label for="check1">Option 1</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="check2" checked>
+                <label for="check2">Option 2 (checked)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="check3">
+                <label for="check3">Option 3</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="control-label">Radio Buttons</div>
+        <div class="radio-group">
+            <div class="radio-item">
+                <input type="radio" id="radio1" name="radiogroup" value="option1">
+                <label for="radio1">Choice A</label>
+            </div>
+            <div class="radio-item">
+                <input type="radio" id="radio2" name="radiogroup" value="option2" checked>
+                <label for="radio2">Choice B (selected)</label>
+            </div>
+            <div class="radio-item">
+                <input type="radio" id="radio3" name="radiogroup" value="option3">
+                <label for="radio3">Choice C</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="control-label">Select Dropdown</div>
+        <select>
+            <option>Choose an option</option>
+            <option>Option 1</option>
+            <option selected>Option 2 (selected)</option>
+            <option>Option 3</option>
+            <option>Option 4</option>
+        </select>
+    </div>
+
+    <div class="control-group">
+        <div class="control-label">Range Slider</div>
+        <input type="range" min="0" max="100" value="50">
+    </div>
+
+    <div class="control-group">
+        <div class="control-label">Textarea</div>
+        <textarea rows="4" placeholder="Enter multiple lines of text here..."></textarea>
+    </div>
+
+    <div class="control-group">
+        <div class="control-label">Buttons</div>
+        <button type="button">Regular Button</button>
+        <button type="submit">Submit Button</button>
+        <button type="reset">Reset Button</button>
+        <button disabled>Disabled Button</button>
+    </div>
+
+    <div class="control-group">
+        <div class="control-label">File Input</div>
+        <input type="file">
+    </div>
+</body>
+</html> 

@@ -1,0 +1,341 @@
+/* DoctoStore Styles - Professional Blue Theme */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8fafc;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+.header {
+    background-color: #107ACA;
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 40px;
+}
+
+.search-container {
+    display: flex;
+    flex: 1;
+    max-width: 400px;
+    margin: 0 2rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 1rem;
+    /* No keyboard navigation - tabindex will be missing by default */
+}
+
+.search-btn {
+    background-color: #0d66aa;
+    padding: 0.5rem 1rem;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    /* No focus indicator - Issue #6 */
+    outline: none;
+}
+
+.account-menu {
+    position: relative;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Hover-only dropdown - Issue #9 */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    color: #333;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    min-width: 120px;
+    display: none;
+    z-index: 100;
+}
+
+.account-menu:hover .dropdown {
+    display: block;
+}
+
+.dropdown div {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.dropdown div:hover {
+    background-color: #f3f4f6;
+}
+
+.cart-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #E7F4FD 0%, #E7F4FD 100%);
+    padding: 3rem 0;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.welcome-message {
+    flex: 1;
+}
+
+.welcome-message h3 {
+    font-size: 2rem;
+    color: #1e40af;
+    margin-bottom: 1rem;
+}
+
+/* Low contrast text - Issue #2 */
+.low-contrast {
+    color: #bdc6cd;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Poor focus indicator - Issue #6 */
+.shop-now-btn {
+    background-color: #107ACA;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    /* Intentionally poor focus indicator */
+    outline: 1px solid transparent;
+}
+
+.shop-now-btn:hover {
+    background-color: #1d4ed8;
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+/* Main Content */
+.main-content {
+    padding: 2rem 0;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Sidebar - Non-semantic structure - Issue #4 */
+.sidebar {
+    width: 250px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    height: fit-content;
+}
+
+.categories-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin-bottom: 1rem;
+}
+
+.category-item {
+    padding: 0.5rem 0;
+    color: #4b5563;
+    cursor: pointer;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.category-item:hover {
+    color: #2563eb;
+}
+
+/* Products Grid */
+.products-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+/* Span instead of heading - Issue #4, #8 */
+.product-name {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.add-to-cart {
+    background-color: #107ACA;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+.add-to-cart:hover {
+    background-color: #1d4ed8;
+}
+
+/* Hover-only quick view - Issue #9 */
+.quick-view {
+    background: #F1F7FE;
+    padding: 0.5rem;
+    transition: transform 0.2s;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Footer - Non-semantic - Issue #4 */
+.footer {
+    padding: 2rem 0 1rem;
+    margin-top: 3rem;
+    display: block;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-section h4 {
+    margin-bottom: 1rem;
+    color: black;
+}
+
+.footer-section a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a:hover {
+    color: gray;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons span {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid #3b82f6;
+    font-size: 0.9rem;
+    display: block;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
