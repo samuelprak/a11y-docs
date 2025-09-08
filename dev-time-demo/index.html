@@ -55,7 +55,7 @@
               <p class="low-contrast">
                 Get your favorite Doctolib goodies delivered to your desk!
               </p>
-              <button class="shop-now-btn">Shop Now</button>
+              <button class="shop-now-btn" onclick="scrollToProducts()">Shop Now</button>
             </div>
             <img
               src="https://images.unsplash.com/photo-1525562723836-dca67a71d5f1?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -76,17 +76,28 @@
             <div class="category-item">Office Supplies</div>
           </aside>
 
-          <section class="products-grid">
+          <section id="products" class="products-grid">
             <!-- Product Cards -->
             <div class="product-card">
               <img
-                src="https://images.unsplash.com/photo-1605714196241-00bf7a8fe7bb?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="./mug.jpg"
                 class="product-image"
               />
-              <span class="product-name">Doctolib Blue Mug</span>
+              <span class="product-name">Doctolib Playbook Mug</span>
               <p class="price low-contrast">€15.99</p>
               <button class="add-to-cart">Add to Cart</button>
-              <div class="quick-view">Quick View Details</div>
+              <div class="quick-view">Mug with Doctolib Playbook</div>
+            </div>
+
+            <div class="product-card">
+              <img
+                src="./bear.jpg"
+                class="product-image"
+              />
+              <span class="product-name">Teddy Bear</span>
+              <p class="price low-contrast">€20.00</p>
+              <button class="add-to-cart">Add to Cart</button>
+              <div class="quick-view">Soft and cuddly</div>
             </div>
 
             <div class="product-card">
@@ -102,7 +113,7 @@
 
             <div class="product-card">
               <img
-                src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="./tshirt.jpg"
                 class="product-image"
               />
               <span class="product-name">Team T-Shirt</span>
@@ -110,6 +121,7 @@
               <button class="add-to-cart">Add to Cart</button>
               <div class="quick-view">100% cotton comfort</div>
             </div>
+
 
             <div class="product-card">
               <img
@@ -147,5 +159,13 @@
         <span class="copyright">© 2024 MySimpleStore. All rights reserved.</span>
       </div>
     </span>
+
+    <script>
+      function scrollToProducts() {
+        document.getElementById('products').scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    </script>
   </body>
 </html>

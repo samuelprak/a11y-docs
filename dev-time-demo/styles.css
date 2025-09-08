@@ -121,7 +121,7 @@ body {
 
 .welcome-message h3 {
     font-size: 2rem;
-    color: #1e40af;
+    color: #107ACA;
     margin-bottom: 1rem;
 }
 
@@ -180,7 +180,7 @@ body {
 .categories-title {
     font-size: 1.2rem;
     font-weight: 600;
-    color: #1e40af;
+    color: #107ACA;
     margin-bottom: 1rem;
 }
 
@@ -210,11 +210,10 @@ body {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     text-align: center;
     position: relative;
-    transition: transform 0.2s;
+    overflow: hidden;
 }
 
 .product-card:hover {
-    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
@@ -259,10 +258,22 @@ body {
 
 /* Hover-only quick view - Issue #9 */
 .quick-view {
-    background: #F1F7FE;
+    background: #107ACA;
+    color: white;
     padding: 0.5rem;
-    transition: transform 0.2s;
-    border-radius: 0 0 8px 8px;
+    border-radius: 8px 8px 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.product-card:hover .quick-view {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 /* Footer - Non-semantic - Issue #4 */
